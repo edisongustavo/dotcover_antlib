@@ -1,15 +1,24 @@
 dotCover antlib
 ================
-A project to run dotCover from ANT (not NANT)
+A project to run JetBrains dotCover (http://www.jetbrains.com/dotcover/) from ANT (not NANT)
 
 This ANT task was written with dotCover 1.0 in mind, if something changes, I can't
-guarantee it will work properly
+guarantee it will work properly.
+
 
 Why?
 ================
 Because dotCover uses xml files to read the configuration, which makes it a little bit
 problematic since the configuration for the coverage is not place in one place (at the
 build.xml) which makes maintenance a little bit harder.
+
+Please note that I am in no way involved with JetBrains and it's dotCover product except
+for being a user of the tool.
+JetBrains and me are NOT involved in any way.
+
+This project was created because I had a specific problem and needed to fix it. I'm sharing
+the solution with the community so it can solve more problems.
+
 
 Building
 ================
