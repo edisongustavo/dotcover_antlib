@@ -1,0 +1,3 @@
+<antlib>
+  <taskdef name="dotCover" classname="com.egmas.ant.tasks.dotcover.DotCoverTask"/>
+</antlib>

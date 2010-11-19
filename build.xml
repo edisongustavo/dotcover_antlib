@@ -1,0 +1,27 @@
+<project name="dotcover_antlib" default="build">
+	<property name="build.classes" value="bin" />
+	<property name="lib.dir" value="lib" />
+	<property name="out.dir" value="out" />
+	<property name="jarname" value="dotcover_antlib.jar" />
+
+	<target name="init">
+		<mkdir dir="${build.classes}" />
+		<mkdir dir="${out.dir}" />
+	</target>
+	<target name="clean">
+		<delete dir="${build.classes}" />
+	</target>
+	<target name="compile">
+		<copy todir="${build.classes}">
+			<fileset dir="src" includes="**/*.xml,**/*.properties" />
+		</copy>
+		<javac srcdir="src" destdir="${build.classes}" debug="true" />
+	</target>
+	<target name="distribute">
+		<jar destfile="${out.dir}/${jarname}">
+			<fileset dir="${build.classes}" />
+		</jar>
+	</target>
+
+	<target name="build" depends="init, clean, compile, distribute" description="Full build" />
+</project>
