@@ -95,6 +95,15 @@ public class DotCoverTask extends Task {
 		this.excludeFilters = excludeFilters;
 	}
 
+	/**
+	 * 
+	 */
+	private boolean failOnError;
+
+	public void setFailOnError(boolean failOnError) {
+		this.failOnError = failOnError;
+	}
+
 	@Override
 	public void execute() throws BuildException {
 		if (testAssemblies.isEmpty())
@@ -192,8 +201,8 @@ public class DotCoverTask extends Task {
 		ExecTask exec = new ExecTask(this);
 		exec.setProject(getProject());
 		exec.setExecutable(execPath);
-		exec.setFailonerror(true);
-		exec.setFailIfExecutionFails(true);
+		exec.setFailonerror(failOnError);
+		exec.setFailIfExecutionFails(failOnError);
 		exec.createArg().setValue(step.name().toLowerCase());
 		exec.createArg().setValue(xmlFile);
 		exec.execute();
