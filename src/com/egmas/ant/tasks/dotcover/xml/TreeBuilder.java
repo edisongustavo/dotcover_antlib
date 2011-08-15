@@ -15,7 +15,7 @@ public class TreeBuilder {
 	}
 
 	/**
-	 * Recurses over the three formed by the object <code>root</code>
+	 * Recurses over the tree formed by the object <code>root</code>
 	 * <p>
 	 * Takes into consideration if implicitCollections were set
 	 * 

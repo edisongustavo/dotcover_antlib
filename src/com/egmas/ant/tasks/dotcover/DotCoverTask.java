@@ -16,6 +16,7 @@ import com.egmas.ant.tasks.dotcover.configuration.coverage.CoverageParams;
 import com.egmas.ant.tasks.dotcover.configuration.coverage.ExcludeFilters;
 import com.egmas.ant.tasks.dotcover.configuration.coverage.Filters;
 import com.egmas.ant.tasks.dotcover.configuration.coverage.IncludeFilters;
+import com.egmas.ant.tasks.dotcover.configuration.coverage.TestOptions;
 import com.egmas.ant.tasks.dotcover.configuration.merge.MergeParams;
 import com.egmas.ant.tasks.dotcover.configuration.merge.Source;
 import com.egmas.ant.tasks.dotcover.configuration.report.ReportParams;
@@ -93,6 +94,17 @@ public class DotCoverTask extends Task {
 
 	public void addExcludeFilters(ExcludeFilters excludeFilters) {
 		this.excludeFilters = excludeFilters;
+	}
+
+	/**
+	 * The options that will be passed to NUnit when running the tests
+	 * <p>
+	 * Optional
+	 */
+	private TestOptions options;
+
+	public void addTestOptions(TestOptions options) {
+		this.options = options;
 	}
 
 	/**
@@ -291,6 +303,10 @@ public class DotCoverTask extends Task {
 				ss.append(" ");
 			ss.append(testAssemblies.get(i).toString());
 		}
+		
+		if (options != null)
+			ss.append(" " + options.getOptions());
+
 		return ss.toString();
 	}
 
